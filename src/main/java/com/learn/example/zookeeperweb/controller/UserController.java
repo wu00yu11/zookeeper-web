@@ -28,7 +28,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/getUser/{id}",method = RequestMethod.GET)
-    public String getUserById(@PathVariable Integer id){
+    public String getUserById(@PathVariable("id") Integer id){
       User user =  this.userService.getUserById(id);
       logger.info("-------method#getUserById() result :"+user.toString());
       return "index";

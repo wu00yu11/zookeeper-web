@@ -1,6 +1,7 @@
 package com.learn.example.zookeeperweb.dao;
 
 import com.learn.example.zookeeperweb.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,10 +16,10 @@ public interface UserDao {
 
     /**
      * 根据userId查询对应用户
-     * @param userId
+     * @param id
      * @return
      */
-     User getUserById(Integer userId);
+     User getUserById(@Param("id") Integer id);
 
 
     /**
