@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2019/2/22 0022
  */
 @Controller
-@RequestMapping(value = "/zookeeper")
+@RequestMapping(value = "/zk")
 public class ZookeeperController {
 
 }
