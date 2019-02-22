@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.example.zookeeperweb.dao.UserDao">
+    <resultMap id="userMap" type="User">
+        <result column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="pass_word" property="passWord"/>
+        <result column="user_type" property="userType"/>
+        <result column="enabled" property="enabled"/>
+        <result column="real_name" property="realName"/>
+        <result column="phone_number" property="phoneNumber"/>
+        <result column="qq" property="qq"/>
+        <result column="email" property="email"/>
+        <result column="tel" property="tel"/>
+    </resultMap>
+
+    <select id="getUserById" parameterType="Integer" resultMap="userMap">
+      select * from user_info where id = #{id}
+    </select>
+
+    <select id="getAllUser" resultMap="userMap">
+      select * from user_info
+    </select>
+
+
+</mapper>
