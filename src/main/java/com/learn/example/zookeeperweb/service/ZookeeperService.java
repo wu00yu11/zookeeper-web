@@ -18,4 +18,6 @@ public interface ZookeeperService {
     void query(String path);
 
     void nodeList(String path);
+
+    String monitor();
 }

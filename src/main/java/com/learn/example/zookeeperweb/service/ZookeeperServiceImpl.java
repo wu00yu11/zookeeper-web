@@ -71,4 +71,10 @@ public class ZookeeperServiceImpl implements ZookeeperService {
             logger.info("获取节点列表=" + data);
         }
     }
+
+    @Override
+    public String monitor() {
+
+        return null;
+    }
 }
