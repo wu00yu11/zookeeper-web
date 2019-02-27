@@ -1,12 +1,15 @@
 package com.learn.example.zookeeperweb.service;
 
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.zookeeper.CreateMode;
+import com.learn.example.zookeeperweb.exception.BizException;
+import com.learn.example.zookeeperweb.util.CmdUtil;
+import com.learn.example.zookeeperweb.util.CuratorClientCache;
+import com.learn.example.zookeeperweb.util.ModeUtil;
+import org.apache.zookeeper.KeeperException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -18,54 +21,59 @@ import java.util.List;
 public class ZookeeperServiceImpl implements ZookeeperService {
 
     private static final Logger logger = LoggerFactory.getLogger(ZookeeperServiceImpl.class);
-    @Autowired
-    private CuratorFramework curatorFramework;
 
 
     @Override
-    public void add(String path, CreateMode createMode, String data) {
+    public void add(String host, String path, String createMode, String data) throws BizException {
         try {
-            curatorFramework.create().withMode(createMode).forPath(path, data.getBytes());
-        } catch (Exception e) {
-            logger.error("创建节点失败, elog=" + e.getMessage());
+            CuratorClientCache.INSTANCE.getClient(host).create().withMode(ModeUtil.CREATE_MODE(createMode)).forPath(path, data.getBytes());
+        }catch(KeeperException.NodeExistsException kn){
+            logger.error(path+"节点已经存在, elog=" ,kn);
+            throw new BizException(path+"节点已经存在",kn.getCause());
+        } catch(Exception e) {
+            logger.error("创建节点失败, elog=" ,e);
+            throw new BizException(e.getMessage(),e.getCause());
         }
     }
 
     @Override
-    public void update(String path,  String data) {
+    public void update(String host,String path,String data) throws BizException {
         try {
-            curatorFramework.setData().forPath(path,data.getBytes());
+            CuratorClientCache.INSTANCE.getClient(host).setData().forPath(path,data.getBytes());
         } catch (Exception e) {
-            logger.error("更新节点失败, elog=" + e.getMessage());
+            logger.error("更新节点失败, elog=" , e);
+            throw new BizException(e.getMessage(),e.getCause());
         }
     }
 
     @Override
-    public void delete(String path) {
+    public void delete(String host,String path) throws BizException {
         try {
-            curatorFramework.delete().forPath(path);
+            CuratorClientCache.INSTANCE.getClient(host).delete().forPath(path);
         } catch (Exception e) {
-            logger.error("删除节点失败, elog=" + e.getMessage());
+            logger.error("删除节点失败, elog=" , e);
+            throw new BizException(e.getMessage(),e.getCause());
         }
     }
 
     @Override
-    public void query(String path) {
+    public String queryData(String host, String path) throws BizException {
         try {
-            curatorFramework.getData().forPath(path);
+           return new String( CuratorClientCache.INSTANCE.getClient(host).getData().forPath(path));
         } catch (Exception e) {
-            logger.error("获取数据失败, elog=" + e.getMessage());
+            logger.error("获取数据失败, elog=" ,e);
+            throw new BizException(e.getMessage(),e.getCause());
         }
     }
 
     @Override
-    public void nodeList(String path) {
+    public void nodeList(String host,String path) throws BizException {
         List<String> paths = null;
         try {
-            paths = curatorFramework.getChildren().forPath(path);
+            paths = CuratorClientCache.INSTANCE.getClient(host).getChildren().forPath(path);
         } catch (Exception e) {
             logger.error("获取节点列表失败, elog=" + e.getMessage());
-            return;
+            throw new BizException(e.getMessage(),e.getCause());
         }
         for (String data : paths) {
             logger.info("获取节点列表=" + data);
@@ -73,8 +81,14 @@ public class ZookeeperServiceImpl implements ZookeeperService {
     }
 
     @Override
-    public String monitor() {
+    public String monitor() throws BizException {
+        try {
+            CmdUtil.INSTANCE.executeCmd("","","");
+        } catch (IOException e) {
+            logger.error("获取服务状态信息失败, elog=" + e.getMessage());
+            throw new BizException(e.getMessage(),e.getCause());
 
+        }
         return null;
     }
 }

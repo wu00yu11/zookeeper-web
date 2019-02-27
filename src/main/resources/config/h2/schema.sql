@@ -11,3 +11,9 @@ CREATE TABLE user_info (
   tel varchar(255)
 );
 
+CREATE TABLE zk_cfg(
+  id int(11)  PRIMARY KEY,
+  host varchar (32),
+  name varchar (32),
+  desc varchar (32)
+);

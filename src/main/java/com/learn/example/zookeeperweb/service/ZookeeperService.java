@@ -1,6 +1,6 @@
 package com.learn.example.zookeeperweb.service;
 
-import org.apache.zookeeper.CreateMode;
+import com.learn.example.zookeeperweb.exception.BizException;
 
 /**
  *
@@ -9,15 +9,15 @@ import org.apache.zookeeper.CreateMode;
  */
 public interface ZookeeperService {
 
-    void add(String path, CreateMode createMode, String data);
+    void add(String host,String path, String mode, String data) throws BizException;
 
-    void update(String path, String data);
+    void update(String host,String path, String data) throws BizException;
 
-    void delete(String path);
+    void delete(String host,String path) throws BizException;
 
-    void query(String path);
+    String queryData(String host, String path) throws BizException;
 
-    void nodeList(String path);
+    void nodeList(String host,String path) throws BizException;
 
-    String monitor();
+    String monitor() throws BizException;
 }

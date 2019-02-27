@@ -44,7 +44,7 @@ public class ZookeeperControllerTest {
 
     @Test
     public void query() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.post("/zk/query"))
+        mvc.perform(MockMvcRequestBuilders.post("/zk/queryData"))
                 .andExpect(MockMvcResultMatchers.status().isOk()) // 期待返回状态吗码200
                 .andDo(MockMvcResultHandlers.print()); // 打印返回的 http response 信息
     }
