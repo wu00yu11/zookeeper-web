@@ -1,6 +1,9 @@
 package com.learn.example.zookeeperweb.dao;
 
+import com.learn.example.zookeeperweb.model.ZkCfg;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  *
@@ -10,12 +13,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ZkCfgDao {
 
-    void add();
+    void add(ZkCfg zkCfg);
 
-    void update();
+    void update(ZkCfg zkCfg);
 
-    void query();
+    List<ZkCfg> query(ZkCfg zkCfg);
 
-    void delete();
+    List<ZkCfg> delete(ZkCfg zkCfg);
 
 }
