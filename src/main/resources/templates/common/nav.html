@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<nav th:fragment="nav">
+    <!-- Sidebar Navidation Menus-->
+    <span class="heading">Main</span>
+    <ul class="list-unstyled">
+        <li class="active"><a th:href="@{index.html}"> <i class="icon-home"></i>主页 </a></li>
+        <li><a href="../tables.html"> <i class="icon-grid"></i>列表 </a></li>
+        <li><a href="../charts.html"> <i class="fa fa-bar-chart"></i>图表 </a></li>
+        <li><a href="../forms.html"> <i class="icon-padnote"></i>表单 </a></li>
+        <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>下拉项 </a>
+            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+            </ul>
+        </li>
+        <li><a href="../login.html"> <i class="icon-interface-windows"></i>登录页 </a></li>
+    </ul><span class="heading">Extras</span>
+    <ul class="list-unstyled">
+        <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
+        <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
+        <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
+        <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+    </ul>
+</nav>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="footer">
+    <div class="row">
+        <div class="col-sm-6">
+            <p>Your company &copy; 2017-2019</p>
+        </div>
+        <div class="col-sm-6 text-right">
+            <p><a href="https://github.com/wu00yu11/zookeeper-web" target="_blank" title="gitHub">gitHub</a> - project - <a href="#" title="zookeeper web monitor" target="_blank">zookeeper web monitor</a></p>
+            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        </div>
+    </div>
+</div>
+<div th:fragment="js">
+    <!-- JavaScript files-->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/popper.js/umd/popper.min.js}"> </script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/vendor/jquery.cookie/jquery.cookie.js}"> </script>
+    <script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+    <script th:src="@{/vendor/jquery-validation/jquery.validate.min.js}"></script>
+    <script th:src="@{/js/charts-home.js}"></script>
+    <!-- Main File-->
+    <script th:src="@{/js/front.js}"></script>
+</div>
+</html>
