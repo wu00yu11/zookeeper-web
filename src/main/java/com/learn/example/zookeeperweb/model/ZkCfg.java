@@ -12,5 +12,13 @@ import java.io.Serializable;
 public class ZkCfg implements Serializable {
     private static final long serialVersionUID = 4120637624765925985L;
 
+    private Integer id;
+
+    private String host;
+
+    private String name;
+
+    private String desc;
+
 
 }
