@@ -11,7 +11,7 @@
   curator.retryCount=5
   #重试间隔时间
   curator.elapsedTimeMs=5000
-  #zookeeper 地址
+  zkCfg
   curator.connectString=192.168.91.140:2181
   #session超时时间
   curator.sessionTimeoutMs=60000

@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 节点类
+ * @author jingjing.zhang
  */
 @Data
 public class Node implements Serializable {

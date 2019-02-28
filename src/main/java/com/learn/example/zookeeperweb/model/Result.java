@@ -1,7 +1,5 @@
 package com.learn.example.zookeeperweb.model;
 
-import lombok.Data;
-
 import java.io.Serializable;
 
 /**

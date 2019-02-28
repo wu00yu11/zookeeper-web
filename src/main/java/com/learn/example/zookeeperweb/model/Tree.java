@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 节点树
+ * @author jingjing.zhang
  */
 @Data
 public class Tree implements Serializable {
