@@ -2,7 +2,7 @@ package com.learn.example.zookeeperweb.controller;
 
 import com.learn.example.zookeeperweb.exception.BizException;
 import com.learn.example.zookeeperweb.model.Result;
-import com.learn.example.zookeeperweb.service.ZookeeperService;
+import com.learn.example.zookeeperweb.service.ZkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +22,13 @@ public class ZookeeperController {
     private static final Logger logger = LoggerFactory.getLogger(ZookeeperController.class);
 
     @Autowired
-    private ZookeeperService zookeeperService;
+    private ZkService zkService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public Result add(String host, String path, String mode, String data) {
         Result result = new Result();
         try {
-            zookeeperService.add(host, path, mode, data);
+            zkService.add(host, path, mode, data);
         } catch (BizException e) {
             logger.error("#add() ::", e);
             result.setCode(e.getCode()).setMag(e.getMsg()).setData(null);
@@ -41,7 +41,7 @@ public class ZookeeperController {
     public Result update(String host, String path, String data) {
         Result result = new Result();
         try {
-            zookeeperService.update(host, path, data);
+            zkService.update(host, path, data);
         } catch (BizException e) {
             logger.error("#update() ::", e);
             result.setCode(e.getCode()).setMag(e.getMsg()).setData(null);
@@ -54,7 +54,7 @@ public class ZookeeperController {
     public Result delete(String host, String path) {
         Result result = new Result();
         try {
-            zookeeperService.delete(host, path);
+            zkService.delete(host, path);
         } catch (BizException e) {
             logger.error("#delete() ::", e);
             result.setCode(e.getCode()).setMag(e.getMsg()).setData(null);
@@ -68,7 +68,7 @@ public class ZookeeperController {
         Result result = new Result();
         String data = "";
         try {
-            data = zookeeperService.queryData(host, path);
+            data = zkService.queryData(host, path);
         } catch (BizException e) {
             logger.error("#queryData() ::", e);
             result.setCode(e.getCode()).setMag(e.getMsg()).setData(data);
@@ -82,7 +82,7 @@ public class ZookeeperController {
         Result result = new Result();
         List<String> paths = null;
         try {
-            paths = zookeeperService.nodeList(host, path);
+            paths = zkService.nodeList(host, path);
         } catch (BizException e) {
             logger.error("#nodeList() ::", e);
             result.setCode(e.getCode()).setMag(e.getMsg()).setData(null);
@@ -95,7 +95,7 @@ public class ZookeeperController {
     public Result monitor() {
         Result result = new Result();
         try {
-            zookeeperService.monitor();
+            zkService.monitor();
         } catch (BizException e) {
             logger.error("#monitor() ::", e);
             result.setCode(e.getCode()).setMag(e.getMsg()).setData(null);

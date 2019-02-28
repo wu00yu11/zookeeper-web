@@ -17,9 +17,9 @@ import java.util.List;
  * @date 2019/2/22 0022
  */
 @Service
-public class ZookeeperServiceImpl implements ZookeeperService {
+public class ZkServiceImpl implements ZkService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ZookeeperServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ZkServiceImpl.class);
 
 
     @Override

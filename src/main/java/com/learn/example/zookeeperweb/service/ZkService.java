@@ -8,7 +8,7 @@ import java.util.List;
  * @author zjj
  * @date 2019/2/22 0022
  */
-public interface ZookeeperService {
+public interface ZkService {
 
     void add(String host, String path, String mode, String data) throws BizException;
 
