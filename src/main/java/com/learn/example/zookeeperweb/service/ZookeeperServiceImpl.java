@@ -26,7 +26,7 @@ public class ZookeeperServiceImpl implements ZookeeperService {
     @Override
     public void add(String host, String path, String createMode, String data) throws BizException {
         try {
-            CuratorClientCache.INSTANCE.getClient(host).create().withMode(ModeUtil.CREATE_MODE(createMode)).forPath(path, data.getBytes());
+            CuratorClientCache.INSTANCE.getClient(host).create().creatingParentsIfNeeded().withMode(ModeUtil.CREATE_MODE(createMode)).forPath(path, data.getBytes());
         }catch(KeeperException.NodeExistsException kn){
             logger.error(path+"节点已经存在, elog=" ,kn);
             throw new BizException(path+"节点已经存在",kn.getCause());
@@ -67,7 +67,7 @@ public class ZookeeperServiceImpl implements ZookeeperService {
     }
 
     @Override
-    public void nodeList(String host,String path) throws BizException {
+    public List<String> nodeList(String host, String path) throws BizException {
         List<String> paths = null;
         try {
             paths = CuratorClientCache.INSTANCE.getClient(host).getChildren().forPath(path);
@@ -75,9 +75,7 @@ public class ZookeeperServiceImpl implements ZookeeperService {
             logger.error("获取节点列表失败, elog=" + e.getMessage());
             throw new BizException(e.getMessage(),e.getCause());
         }
-        for (String data : paths) {
-            logger.info("获取节点列表=" + data);
-        }
+        return paths;
     }
 
     @Override

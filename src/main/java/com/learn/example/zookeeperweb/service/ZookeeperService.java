@@ -2,6 +2,8 @@ package com.learn.example.zookeeperweb.service;
 
 import com.learn.example.zookeeperweb.exception.BizException;
 
+import java.util.List;
+
 /**
  *
  * @author zjj
@@ -17,7 +19,7 @@ public interface ZookeeperService {
 
     String queryData(String host, String path) throws BizException;
 
-    void nodeList(String host,String path) throws BizException;
+    List<String> nodeList(String host, String path) throws BizException;
 
     String monitor() throws BizException;
 }

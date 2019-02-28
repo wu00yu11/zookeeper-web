@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  *
  * @author zjj
@@ -76,16 +78,17 @@ public class ZookeeperController {
     }
 
     @RequestMapping(value = "/nodeList",method = RequestMethod.GET)
-    public Result nodeList(String host,String path){
+    public Result<List<String>> nodeList(String host,String path){
         Result result = new Result();
+        List<String> paths = null;
         try {
-            zookeeperService.nodeList(host,path);
+            paths = zookeeperService.nodeList(host,path);
         } catch (BizException e) {
             logger.error("#nodeList() ::",e);
             result.setCode(e.getCode()).setMag(e.getMsg()).setData(null);
             return result;
         }
-        return result.setCode("0000").setMag("处理成功").setData(null);
+        return result.setCode("0000").setMag("处理成功").setData(paths);
     }
     @RequestMapping(value = "/monitor",method = RequestMethod.GET)
     public Result monitor(){
