@@ -13,9 +13,9 @@ public class LoginController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(User user){
-        logger.info("login::user = [{1}]",user);
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(User user) {
+        logger.info("login::user = [{1}]", user);
         return null;
     }
 

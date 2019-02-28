@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 
 /**
  * zookeeper配置项管理
+ *
  * @author zjj
  * @date 2019/2/28 0028
  */
@@ -25,22 +26,25 @@ public class ZkCfgController {
     private ZkCfgService zkCfgService;
 
     @GetMapping("/add")
-    public String add(ZkCfg zkCfg){
+    public String add(ZkCfg zkCfg) {
         zkCfgService.add(zkCfg);
         return "index";
     }
+
     @GetMapping("/update")
-    public String update(ZkCfg zkCfg){
+    public String update(ZkCfg zkCfg) {
         zkCfgService.update(zkCfg);
         return "index";
     }
+
     @GetMapping("/delete")
-    public String delete(ZkCfg zkCfg){
+    public String delete(ZkCfg zkCfg) {
         zkCfgService.delete(zkCfg);
         return "index";
     }
+
     @GetMapping("/query")
-    public String query(ZkCfg zkCfg){
+    public String query(ZkCfg zkCfg) {
         zkCfgService.query(zkCfg);
         return "index";
     }

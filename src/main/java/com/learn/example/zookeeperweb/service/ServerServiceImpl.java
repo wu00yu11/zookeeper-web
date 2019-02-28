@@ -4,6 +4,7 @@ import com.learn.example.zookeeperweb.model.Server;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class ServerServiceImpl implements ServerService {
 

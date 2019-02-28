@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- *
  * @author zjj
  * @date 2019/2/22 0022
  */
@@ -27,17 +26,18 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/getUser/{id}",method = RequestMethod.GET)
-    public String getUserById(@PathVariable("id") Integer id){
-      User user =  this.userService.getUserById(id);
-      logger.info("-------method#getUserById() result :"+user.toString());
-      return "index";
+    @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET)
+    public String getUserById(@PathVariable("id") Integer id) {
+        User user = this.userService.getUserById(id);
+        logger.info("-------method#getUserById() result :" + user.toString());
+        return "index";
     }
-    @RequestMapping(value = "/getAllUser",method = RequestMethod.GET)
-    public String getAllUser(){
-      List<User> users =  this.userService.getAllUser();
-      logger.info("-------method#getUserById() result :"+ JSON.toJSONString(users));
-      return "index";
+
+    @RequestMapping(value = "/getAllUser", method = RequestMethod.GET)
+    public String getAllUser() {
+        List<User> users = this.userService.getAllUser();
+        logger.info("-------method#getUserById() result :" + JSON.toJSONString(users));
+        return "index";
     }
 
 

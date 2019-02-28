@@ -5,7 +5,6 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- *
  * @author zjj
  * @date 2019/2/22 0022
  */
@@ -22,11 +21,17 @@ public class User implements Serializable {
      */
     private String userType;
     private Integer enabled;
-    /**真实姓名**/
+    /**
+     * 真实姓名
+     **/
     private String realName;
-    /**电话号码**/
+    /**
+     * 电话号码
+     **/
     private Integer phoneNumber;
-    /**座机号码**/
+    /**
+     * 座机号码
+     **/
     private String tel;
     private String qq;
     private String email;

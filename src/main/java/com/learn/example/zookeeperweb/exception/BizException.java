@@ -3,7 +3,6 @@ package com.learn.example.zookeeperweb.exception;
 import lombok.Data;
 
 /**
- *
  * @author zjj
  * @date 2019/2/27 0027
  */

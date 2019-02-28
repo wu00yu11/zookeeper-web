@@ -11,19 +11,20 @@ import org.springframework.util.StringUtils;
  */
 public final class ModeUtil {
     private static final Logger logger = LoggerFactory.getLogger(ModeUtil.class);
+
     /**
      * 不支持实例化方法调用
      */
-    private ModeUtil(){
+    private ModeUtil() {
 
     }
 
-    public static final CreateMode CREATE_MODE (String mode) throws BizException {
+    public static final CreateMode CREATE_MODE(String mode) throws BizException {
 
-        if (StringUtils.isEmpty(mode)){
+        if (StringUtils.isEmpty(mode)) {
             throw new BizException("输入的节点模型,请检查!");
         }
-        switch (mode.toUpperCase()){
+        switch (mode.toUpperCase()) {
             case "PERSISTENT":
                 return CreateMode.PERSISTENT;
             case "EPHEMERAL":
@@ -32,8 +33,8 @@ public final class ModeUtil {
                 return CreateMode.PERSISTENT_SEQUENTIAL;
             case "EPHEMERAL_SEQUENTIAL":
                 return CreateMode.EPHEMERAL_SEQUENTIAL;
-             default:
-                    throw new BizException("mode不在允许值范围内[PERSISTENT,EPHEMERAL,PERSISTENT_SEQUENTIAL,EPHEMERAL_SEQUENTIAL]");
+            default:
+                throw new BizException("mode不在允许值范围内[PERSISTENT,EPHEMERAL,PERSISTENT_SEQUENTIAL,EPHEMERAL_SEQUENTIAL]");
         }
     }
 }
