@@ -1,14 +1,17 @@
 package com.learn.example.zookeeperweb.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.learn.example.zookeeperweb.model.ZkCfg;
 import com.learn.example.zookeeperweb.service.ZkCfgService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * zookeeper配置项管理
@@ -25,19 +28,19 @@ public class ZkCfgController {
     @Resource
     private ZkCfgService zkCfgService;
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public String add(ZkCfg zkCfg) {
         zkCfgService.add(zkCfg);
         return "index";
     }
 
-    @GetMapping("/update")
+    @PostMapping("/update")
     public String update(ZkCfg zkCfg) {
         zkCfgService.update(zkCfg);
         return "index";
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public String delete(ZkCfg zkCfg) {
         zkCfgService.delete(zkCfg);
         return "index";
@@ -45,8 +48,10 @@ public class ZkCfgController {
 
     @GetMapping("/query")
     public String query(ZkCfg zkCfg) {
-        zkCfgService.query(zkCfg);
-        return "index";
+        logger.info("#query() :: params = "+ JSON.toJSONString(zkCfg));
+       List<ZkCfg> cfgs=  zkCfgService.query(zkCfg);
+       logger.info("#query() :: "+ JSON.toJSONString(cfgs));
+       return "index";
     }
 
 }

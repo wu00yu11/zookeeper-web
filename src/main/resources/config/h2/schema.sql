@@ -1,5 +1,5 @@
 CREATE TABLE user_info (
-  id int(11)  NOT NULL IDENTITY  PRIMARY KEY,
+  id int(11)  auto_increment PRIMARY KEY,
   user_name varchar(32),
   pass_word varchar(32),
   user_type varchar(2),
@@ -10,9 +10,9 @@ CREATE TABLE user_info (
   phone_number integer(13),
   tel varchar(255)
 );
-#auto_increment
+
 CREATE TABLE zk_cfg(
-  id int(11)  NOT NULL IDENTITY  PRIMARY KEY,
+  id int(11) auto_increment  PRIMARY KEY,
   host varchar (32),
   name varchar (32),
   desc varchar (32)

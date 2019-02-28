@@ -16,8 +16,8 @@ public interface ZkCfgDao {
 
     void update(ZkCfg zkCfg);
 
-    List<ZkCfg> query(ZkCfg zkCfg);
+    void delete(ZkCfg zkCfg);
 
-    List<ZkCfg> delete(ZkCfg zkCfg);
+    List<ZkCfg> query(ZkCfg zkCfg);
 
 }
