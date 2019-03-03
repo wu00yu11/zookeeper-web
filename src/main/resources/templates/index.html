@@ -10,13 +10,93 @@
       <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar" th:include="/common/nav :: nav"></nav>
-        <div class="content-inner">
+
+        <div class="content-inner breadcrumb-holder container-fluid">
           <!-- Page Header-->
           <header class="page-header">
-            <div class="container-fluid">
+            <div >
               <h2 class="no-margin-bottom">服务列表</h2>
             </div>
           </header>
+          <div class="container-fluid">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">服务列表            </li>
+            </ul>
+          </div>
+          <div class="container-fluid">
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <a class="btn" href="#">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </a>
+                <a class="btn" href="#">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <hr>
+            <!-- query params -->
+            <table class="table table-borderless">
+              <thead align="center">
+              <th>名称</th>
+              <th>HOST</th>
+              <th>描述</th>
+              <th>操作</th>
+              </tr>
+              </thead>
+              <tbody align="center">
+              <tr>
+                <td>231313当方当13213</td>
+                <td>231313当方当13213</td>
+                <td>231313当方当13213</td>
+                <td>
+                  <a class="btn" href="#">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  </a>
+                  <a class="btn" href="#">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </a>
+                  <a class="btn" href="#">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>231313当方当13213</td>
+                <td>231313当方当13213</td>
+                <td>231313当方当13213</td>
+                <td>
+                  <a class="btn" href="#">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  </a>
+                  <a class="btn" href="#">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </a>
+                  <a class="btn" href="#">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>231313当方当13213</td>
+                <td>231313当方当13213</td>
+                <td>231313当方当13213</td>
+                <td>
+                  <a class="btn" href="#">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  </a>
+                  <a class="btn" href="#">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </a>
+                  <a class="btn" href="#">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                  </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
 
           <!-- Page Footer-->
           <footer class="main-footer">
